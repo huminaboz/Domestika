@@ -69,7 +69,7 @@
                 if (Math.random() > .35) {
                     ctx.beginPath();
                     //context.arc(x,y,radius,startAngle,endAngle,counterclockwise);
-                    ctx.arc(centerX - (iterations / 2) * radius * 2 + j * radius * 2, centerY + i * radius - (iterations / 2) * radius, radius, 0, 2 * Math.PI);
+                    ctx.arc(centerX - (iterations / 2) * radius  + j * radius , centerY + i * radius - (iterations / 2) * radius, radius, 0, 2 * Math.PI);
                     ctx.stroke();
                 }
 
