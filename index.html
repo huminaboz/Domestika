@@ -1,111 +1,38 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>sketch-02.js</title>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            margin: 0;
+        }
+
+        canvas {
+            margin: auto;
+            display: block;
+            box-shadow: 0px 2px 12px -2px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
-<style>
-    html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-</style>
-<body>
-<canvas></canvas>
-<script>
-    let canvas = document.querySelector('canvas');
-
-    //let context = canvas.getContext('2d');
-
-    function generateRandom(maxLimit = 100) {
-        let rand = Math.random() * maxLimit;
-        console.log(rand); // say 99.81321410836433
-
-        rand = Math.floor(rand); // 99
-
-        return rand;
-    }
-
-
-    let lineWidth = 3;
-
-    function getNewStrokeWidth() {
-        lineWidth = generateRandom(10);
-        draw();
-    }
-
-
-    function draw() {
-        let ctx = canvas.getContext('2d');
-        ctx.canvas.width = window.innerWidth;
-        ctx.canvas.height = window.innerHeight;
-
-        let iterations;
-        let radius = 50;
-        
-        if (ctx.canvas.width > ctx.canvas.height) {
-            iterations = ctx.canvas.width / radius;
-            radius = ctx.canvas.width * .05;
-        } else {
-            iterations = ctx.canvas.height / radius;
-            radius = ctx.canvas.height * .05;
-        }
-
-        ctx.fillStyle = "#0053e1  ";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = '#292929      ';
-        ctx.strokeStyle = "#f4e3d1     ";
-        let centerX = (ctx.canvas.width / 2);
-        let centerY = (ctx.canvas.height / 2);
-        ctx.fillRect(centerX - centerX / 2, 0, centerX, ctx.canvas.height);
-
-        // ctx.beginPath();
-        // ctx.rect(100, 100, 300, 300);
-        // ctx.stroke();
-
-        ctx.lineWidth = radius/20;
-        for (let i = 0; i < iterations; i++) {
-            for (let j = 0; j < iterations; j++) {
-                if (Math.random() > .35) {
-                    ctx.beginPath();
-                    //context.arc(x,y,radius,startAngle,endAngle,counterclockwise);
-                    ctx.arc(centerX - (iterations / 2) * radius  + j * radius , centerY + i * radius - (iterations / 2) * radius, radius, 0, 2 * Math.PI);
-                    ctx.stroke();
-                }
-
-            }
-        }
-    }
-
-    draw();
-
-    window.setInterval(draw, 500);
-    //window.setInterval(getNewStrokeWidth, 100);
-
-    let x = 49;
-    let y = x + 1;
-    let dinner = 'pasta';
-    let sentence = 'Tonight, dinner will be ' + dinner;
-
-    function saySomething(param) {
-        console.log(param);
-    }
-
-    saySomething(sentence);
-
-    function add(a, b) {
-        return a + b;
-    }
-
-    let result = add(5, 7);
-    console.log(result);
-
-    let multiple = (a, b) => {
-        return a * b;
-    }
-
-    console.log(multiple(5, 7));
-
-</script>
+<body><script type="text/javascript" src="/budo/livereload.js" async="" defer=""></script>
+<script src="sketches/sketch-02.js"></script>
 </body>
 </html>
